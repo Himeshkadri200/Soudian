@@ -88,7 +88,7 @@ button:hover {
   opacity: 1;
   font-size: 10px;
   Color:#000;
-  top: -5px;
+  top: -4px;
    font-family: 'Arimo', sans-serif;
 }
 .input-group__input:focus {
@@ -99,4 +99,48 @@ button:hover {
 .input-group__input:focus + label +i{
   color: #777777;
   border-color:#67AEF9;
+}
+.input-group__labelDate {
+  display: block;
+  position: absolute;
+  top: -7px;
+  line-height: 50px;
+  color: #aaa;
+  font-size:11px;
+  left: 39px;
+  letter-spacing:0.5px;
+  font-family: 'Arimo', sans-serif;
+  transition: line-height 300ms ease-in-out, font-size 200ms ease-in-out, top 200ms ease-in-out;
+  pointer-events: none;
+}
+.input-group__inputDate:not(:placeholder-shown) + label, .input-group__inputDate:focus + label{
+  background-color: white;
+  line-height: 10px;
+  opacity: 1;
+  font-size: 10px;
+  Color:#000;
+  top: -4px;
+  font-family: 'Arimo', sans-serif;
+}
+.input-group__labelCvv {
+  display: block;
+  position: absolute;
+  top: -44px;
+  line-height: 50px;
+  color: #aaa;
+  font-size:11px;
+  left: 215px;
+  letter-spacing:0.5px;
+  font-family: 'Arimo', sans-serif;
+  transition: line-height 300ms ease-in-out, font-size 200ms ease-in-out, top 200ms ease-in-out;
+  pointer-events: none;
+}
+.input-group__inputCvv:not(:placeholder-shown) + label, .input-group__inputCvv:focus + label{
+  background-color: white;
+  line-height: 10px;
+  opacity: 1;
+  font-size: 10px;
+  Color:#000;
+  top: -40px;
+   font-family: 'Arimo', sans-serif;
 }
