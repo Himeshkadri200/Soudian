@@ -129,7 +129,7 @@ button:hover {
   line-height: 50px;
   color: #aaa;
   font-size:11px;
-  left: 215px;
+  left: 202px;
   letter-spacing:0.5px;
   font-family: 'Arimo', sans-serif;
   transition: line-height 300ms ease-in-out, font-size 200ms ease-in-out, top 200ms ease-in-out;
